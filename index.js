@@ -16,7 +16,19 @@ deployedContract = VotingContract.new(["Rama", "Nick", "Jose"], {
   from: web3.eth.accounts[0],
   gas: 3141592
 });
-console.log(deployedContract.address);
+setTimeout(() => {
+  console.log(deployedContract.address);
 
-contractInstance = VotingContract.at(deployedContract.address);
-console.log(contractInstance.totalVotesFor.call("Rama"));
+  contractInstance = VotingContract.at(deployedContract.address);
+  console.log(contractInstance.totalVotesFor.call("Rama"));
+  console.log(
+    contractInstance.voteForCandidate("Rama", { from: web3.eth.accounts[0] })
+  );
+  console.log(
+    contractInstance.voteForCandidate("Rama", { from: web3.eth.accounts[0] })
+  );
+  console.log(
+    contractInstance.voteForCandidate("Rama", { from: web3.eth.accounts[0] })
+  );
+  console.log(contractInstance.totalVotesFor.call("Rama"));
+}, 10000);

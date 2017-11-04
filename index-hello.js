@@ -16,7 +16,10 @@ deployedContract = VotingContract.new(null, {
   from: web3.eth.accounts[0],
   gas: 3141592
 });
-console.log(deployedContract.address);
 
-contractInstance = VotingContract.at(deployedContract.address);
-console.log(contractInstance.return6.call());
+setTimeout(() => {
+  console.log("address ", deployedContract.address);
+
+  contractInstance = VotingContract.at(deployedContract.address);
+  console.log(contractInstance.return6.call());
+}, 10000);
